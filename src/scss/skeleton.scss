@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    margin: 5px 0 0 0;
+}
+
+.col-l {
+    display: inline-flex;
+    flex-grow: 1;
+}
+
+.col-r {
+    display: inline-flex;
+    flex-grow: 1;
+}
+
+%input-label-radius {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 5px 10px 5px 5px;
+    width: 15rem;
+    background-color: white;
+    &::placeholder {
+        color: lightgray;
+    }
+}
+
+.label__min, .input__search {
+    @extend %input-label-radius;
+}
+
+.div__label {
+    display: block;
+    font-size: 12px;
+    color: #000000;
+    .label__min, .input__search {
+        text-align: right;
+    }
+}
+
+.div__search {
+    display: block;
+    line-height: 12px;
+    top: 50%;
+    .input__search {
+        transform: translateY(-1%);
+        text-align: left;
+        margin: 0.97em 30px;
+        
+        background-image: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/129/left-pointing-magnifying-glass_1f50d.png');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 15px;
+        
+    }
+}

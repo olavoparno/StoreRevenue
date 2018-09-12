@@ -1,0 +1,23 @@
+@import "base";
+@import "skeleton";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $default__background-color;
+    font-family: $default__font-family;
+}
+
+.header {
+    position: relative;
+    display: block;
+    background-color: $header__color;
+    padding: 12px 0 15px 30px;
+    width: 100%;
+
+    h1 {
+        font-size: $header__font-size;
+        color: $header__font-color;
+        margin: 0;
+    }
+}
