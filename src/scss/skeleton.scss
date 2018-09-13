@@ -1,25 +1,41 @@
+.display__flex {
+    display: flex;
+}
+
 .container {
+    position: relative;
     display: flex;
     margin: 5px 0 0 0;
 }
 
 .col-l {
-    display: inline-flex;
+    position: relative;
+    display: block;
     flex-grow: 1;
 }
 
 .col-r {
-    display: inline-flex;
+    position: relative;
+    display: block;
     flex-grow: 1;
 }
 
 %input-label-radius {
     border: 1px solid #ccc;
     border-radius: 4px;
+    
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
+    
     padding: 5px 10px 5px 5px;
     width: 15rem;
     background-color: white;
+    
+    -moz-box-shadow:    1px 2px 2px 0px #ccc;
+    -webkit-box-shadow: 1px 2px 2px 0px #ccc;
+
+    box-shadow:         1px 2px 2px 0px #ccc;
+
     &::placeholder {
         color: lightgray;
     }
@@ -40,17 +56,63 @@
 
 .div__search {
     display: block;
-    line-height: 12px;
     top: 50%;
     .input__search {
         transform: translateY(-1%);
         text-align: left;
         margin: 0.97em 30px;
         
-        background-image: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/129/left-pointing-magnifying-glass_1f50d.png');
+        background-image: url('../resources/images/search.svg');
         background-repeat: no-repeat;
         background-position: right;
         background-size: 15px;
         
     }
+}
+
+.div__list {
+    display: block;
+    margin: 0.97em 30px;
+    width: 330px;
+}
+
+.div__item__child {
+    display: block;
+    width: 100%;
+
+    &.--below {
+        color: red;
+    }
+}
+
+.div__list__t {
+    display: flex;
+}
+
+.div__list__b {
+    display: block;
+}
+
+.div__item {
+
+    &.div__item__header {
+        width: 100%;
+        // margin-right: 5px
+    }
+    
+
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    padding: 5px 10px 5px 5px;
+    background-color: white;
+    
+    -moz-box-shadow:    1px 2px 2px 0px #ccc;
+    -webkit-box-shadow: 1px 2px 2px 0px #ccc;
+
+    box-shadow:         1px 2px 2px 0px #ccc;
 }
