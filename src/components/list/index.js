@@ -9,7 +9,8 @@ class List extends React.Component {
     constructor(props) {
         super(props);
         
-        const stores = data.stores;
+        // const stores = data.stores;
+        const stores = this.props.data;
 
         this.state = {
             stores: stores,
