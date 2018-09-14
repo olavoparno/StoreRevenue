@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const CustomMap = styled(Map)`
   height: 350px;
-  width: 350px;
+  margin-right: 30px;
 `;
 
 import "./map.scss";

@@ -1,27 +1,29 @@
 import React from 'react';
 
 import Item from './item';
+import Pagination from '../pagination';
 
 import data from '../../resources/data/data.json';
 
 class List extends React.Component {
     constructor(props) {
         super(props);
-    
-        this.state = {
-            stores: []
-        };
-    }
-    // componentDidMount() {
-    //     console.log(123);
-    //     axios.get('../../../dist/data.json')
-    //       .then(res => {
-    //         const stores = res.data;
-    //         this.setState({ stores });
-    //     })
-    // }
-    render() {
+        
         const stores = data.stores;
+
+        this.state = {
+            stores: stores,
+            pageOfItems: []
+        };
+
+        this.onChangePage = this.onChangePage.bind(this);
+    }
+
+    onChangePage(pageOfItems) {
+        this.setState({ pageOfItems: pageOfItems });
+    }
+
+    render() {
         return (
             <div className="div__list">
                 <div className="div__list__t">
@@ -29,7 +31,8 @@ class List extends React.Component {
                     <Item className="div__item div__item__header" value="Faturamento" />
                 </div>
                 <div className="div__list__b">
-                    { stores.map((store, idx) => { 
+                    { 
+                        this.state.pageOfItems.map((store, idx) => {
                         let className = "div__item div__item__child";
                         if (store.revenue < 15000) {
                             className += " --below"
@@ -40,6 +43,7 @@ class List extends React.Component {
                             <Item className={className} value={store.revenue} />
                         </div>)})    
                     }
+                    <Pagination items={this.state.stores} onChangePage={this.onChangePage} />
                 </div>
             </div>
         )
