@@ -35,7 +35,7 @@ class MyMap extends React.Component {
     const myIcon = (props) => {
       return (L.icon({
       iconUrl: `../.././../dist/images/marker-${props < minValue ? 'red' : 'blue'}.png`,
-      iconSize: [20, 20],
+      iconSize: [15, 15],
       iconAnchor: [22, 94],
       popupAnchor: [-3, -76],
     }))};
