@@ -16,9 +16,18 @@ class MyMap extends React.Component {
     const stores = this.props.data;
 
     this.state = {
-      zoom: 16,
-      items: stores
+      items: stores,
+      zoom: 12
     };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.data !== prevState.items) {
+      return {
+        items: nextProps.data.stores
+      }
+    }
+    return null;
   }
 
   render() {
@@ -30,8 +39,7 @@ class MyMap extends React.Component {
       popupAnchor: [-3, -76],
     }))};
     
-    // const position = [this.state.items[0].latitude, this.state.items[0].longitude];
-    const position = [-23.627158, -46.675183];
+    const position = [-23.577158, -46.665183];
     return (
       <CustomMap center={position} zoom={this.state.zoom}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -42,7 +50,6 @@ class MyMap extends React.Component {
                 key={idx}
                 position={[item.latitude, item.longitude]}
                 icon={myIcon(item.revenue)}>
-                {console.log(item)}
               </Marker>
             )
           })
