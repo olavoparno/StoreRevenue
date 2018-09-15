@@ -1,5 +1,5 @@
 import React from "react";
-import { Map, TileLayer, Marker } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import styled from "styled-components";
 
 const CustomMap = styled(Map)`
@@ -50,6 +50,19 @@ class MyMap extends React.Component {
                 key={idx}
                 position={[item.latitude, item.longitude]}
                 icon={myIcon(item.revenue)}>
+                <Popup>
+                  {
+                    item.revenue < 15000 ?
+                      <div>
+                        <div style={{'color': 'red'}}>Nome: {item.name}</div>
+                        <div style={{'color': 'red'}}>Receita: {item.revenue}</div>
+                      </div> :
+                      <div>
+                        <div style={{'color': 'blue'}}>Nome: {item.name}</div>
+                        <div style={{'color': 'blue'}}>Receita: {item.revenue}</div>
+                      </div>
+                  }
+                </Popup>
               </Marker>
             )
           })

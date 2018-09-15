@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const Label = (props) => {
     const { disabled, minValue } = props;
     return (
-        <div className="div__label">
+        <div className="div__label revenue">
             <span>Faturamento mínimo esperado</span>
-            <input type="text" className="div__label label__min" disabled={disabled} placeholder={minValue} />
+            <input type="text" className="div__label label__min revenue" disabled={disabled} placeholder={minValue} />
         </div>
     );
 }
