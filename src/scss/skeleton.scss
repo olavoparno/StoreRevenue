@@ -5,7 +5,7 @@
 .container {
     position: relative;
     display: flex;
-    margin: 5px 0 0 0;
+    margin: 10px 0 0 0;
 }
 
 .col-l {
@@ -127,6 +127,9 @@
     padding-left: 0;
     margin: 20px 0;
     border-radius: 4px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .pagination>li {
