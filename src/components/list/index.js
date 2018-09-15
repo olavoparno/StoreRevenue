@@ -3,13 +3,10 @@ import React from 'react';
 import Item from './item';
 import Pagination from '../pagination';
 
-import data from '../../resources/data/data.json';
-
 class List extends React.Component {
     constructor(props) {
         super(props);
         
-        // const stores = data.stores;
         const stores = this.props.data;
 
         this.state = {
@@ -18,6 +15,15 @@ class List extends React.Component {
         };
 
         this.onChangePage = this.onChangePage.bind(this);
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.data !== prevState.stores) {
+            return {
+                stores: nextProps.data.stores
+            }
+        }
+        return null;
     }
 
     onChangePage(pageOfItems) {
