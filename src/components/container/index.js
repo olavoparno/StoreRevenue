@@ -15,12 +15,9 @@ class Container extends React.Component {
         this.state = {
           stores: [],
           prevStores: [],
-          isLoading: true
+          isLoading: true,
+          minValue: 15000
         };
-
-    }
-
-    componentDidUpdate() {
 
     }
 
@@ -42,7 +39,7 @@ class Container extends React.Component {
     }
 
     onChange(value) {
-        const oldStores = this.state.prevStores.length ?
+        const oldStores = this.state.prevStores.length > 0 ?
             this.state.prevStores :
             this.state.stores.stores;
 
@@ -50,25 +47,33 @@ class Container extends React.Component {
             return item.name.toLowerCase().search(
                 value.toLowerCase()) !== -1;
             });
+            
+        const finalStores = newStores.length > 0 ? newStores : this.state.prevStores;
 
             this.setState({
                 prevStores: oldStores,
-                stores: { stores: newStores}
+                stores: { stores: finalStores}
             });
     }
 
+    onChangeLabel(minValue) {
+        this.setState({
+            minValue: Number(minValue)
+        });
+    }
+
     render() {
-        const { stores, isLoading } = this.state;
+        const { stores, isLoading, minValue } = this.state;
         const data = isLoading ? [{"name": 'Loading...', "latitude":"-22.9385", "longitude":"-43.1764"}] : stores;
         return (
             <div className="container">
                 <div className="col-l">
                     <Search onChange={this.onChange.bind(this)} data={data} defaultValue={"Pesquisa"} />
-                    <List data={data} />
+                    <List data={data} minValue={minValue}/>
                 </div>
                 <div className="col-r">
-                    <Label disabled minValue={"15.000,00"} />
-                    <Map data={data} lat={-22.9385} lng={-43.1764} />
+                    <Label onChange={this.onChangeLabel.bind(this)} disabled={false} minValue={this.state.minValue} />
+                    <Map data={data} minValue={minValue} lat={-22.9385} lng={-43.1764} />
                 </div>
             </div>
         )

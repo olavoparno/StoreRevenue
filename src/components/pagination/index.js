@@ -16,7 +16,19 @@ const defaultProps = {
 class Pagination extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { pager: {} };
+        this.state = { 
+            pager: {},
+            stores: []
+        };
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.items !== prevState.stores) {
+            return {
+                stores: nextProps.items
+            }
+        }
+        return null;
     }
 
     componentDidMount() {
