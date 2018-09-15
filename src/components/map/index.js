@@ -3,7 +3,7 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import styled from "styled-components";
 
 const CustomMap = styled(Map)`
-  height: 350px;
+  height: 345px;
   margin-right: 30px;
 `;
 
@@ -31,9 +31,10 @@ class MyMap extends React.Component {
   }
 
   render() {
+    const { minValue } = this.props;
     const myIcon = (props) => {
       return (L.icon({
-      iconUrl: `../.././../dist/images/marker-${props < 15000 ? 'red' : 'blue'}.png`,
+      iconUrl: `../.././../dist/images/marker-${props < minValue ? 'red' : 'blue'}.png`,
       iconSize: [20, 20],
       iconAnchor: [22, 94],
       popupAnchor: [-3, -76],

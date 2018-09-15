@@ -18,7 +18,10 @@ class List extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
+        // console.log("props", nextProps)
+        // console.log("state ", prevState)
         if (nextProps.data !== prevState.stores) {
+            // console.log("Differente so... ", nextProps.data.stores)
             return {
                 stores: nextProps.data.stores
             }
@@ -26,11 +29,16 @@ class List extends React.Component {
         return null;
     }
 
+    componentDidUpdate(nextProps, prevState) {
+
+    }
+
     onChangePage(pageOfItems) {
         this.setState({ pageOfItems: pageOfItems });
     }
 
     render() {
+        const { minValue } = this.props;
         return (
             <div className="div__list">
                 <div className="div__list__t">
@@ -41,7 +49,7 @@ class List extends React.Component {
                     { 
                         this.state.pageOfItems.map((store, idx) => {
                         let className = "div__item div__item__child";
-                        if (store.revenue < 15000) {
+                        if (store.revenue < minValue) {
                             className += " --below"
                         } 
                         return (
