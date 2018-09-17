@@ -42,7 +42,9 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
+    data: PropTypes.any,
     defaultValue: PropTypes.string,
+    onChangeSearch: PropTypes.func
 }
 
 Search.defaultProps = {

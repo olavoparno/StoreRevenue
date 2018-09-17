@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import styled from "styled-components";
 
@@ -71,6 +72,11 @@ class MyMap extends React.Component {
       </CustomMap>
     );
   }
+}
+
+Map.propTypes = {
+  data: PropTypes.any.isRequired,
+  minValue: PropTypes.number
 }
 
 export default MyMap;

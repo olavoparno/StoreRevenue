@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Pagination from '../pagination';
 
@@ -123,5 +124,10 @@ class List extends React.Component {
           );
     }
 };
+
+List.propTypes = {
+    data: PropTypes.any.isRequired,
+    minValue: PropTypes.number
+}
 
 export default List;

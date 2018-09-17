@@ -1,21 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-    items: PropTypes.array,
-    onChangePage: PropTypes.func.isRequired,
-    initialPage: PropTypes.number,
-    pageSize: PropTypes.number
-}
-
-const defaultProps = {
-    initialPage: 1,
-    pageSize: 10
-}
-
 class Pagination extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = { 
             pager: {},
             stores: []
@@ -135,7 +123,16 @@ class Pagination extends React.Component {
     }
 }
 
-Pagination.propTypes = propTypes;
-Pagination.defaultProps = defaultProps;
+Pagination.propTypes = {
+    items: PropTypes.array,
+    onChangePage: PropTypes.func.isRequired,
+    initialPage: PropTypes.number,
+    pageSize: PropTypes.number
+}
+
+Pagination.defaultProps = {
+    initialPage: 1,
+    pageSize: 10
+}
 
 export default Pagination;

@@ -7,8 +7,8 @@ import List from '../list';
 
 import MapService from "../service";
 class Container extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
     
         this.service = new MapService();
 
