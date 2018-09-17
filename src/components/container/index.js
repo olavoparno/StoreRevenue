@@ -38,7 +38,7 @@ class Container extends React.Component {
         });
     }
 
-    onChange(value) {
+    onChangeSearch(value) {
         const oldStores = this.state.prevStores.length > 0 ?
             this.state.prevStores :
             this.state.stores.stores;
@@ -64,11 +64,11 @@ class Container extends React.Component {
 
     render() {
         const { stores, isLoading, minValue } = this.state;
-        const data = isLoading ? [{"name": 'Loading...', "latitude":"-22.9385", "longitude":"-43.1764"}] : stores;
+        const data = isLoading ? [{"name": 'Loading...', "latitude":"-22.9385", "longitude":"-43.1764", "revenue": "0"}] : stores;
         return (
             <div className="container">
                 <div className="col-l">
-                    <Search onChange={this.onChange.bind(this)} data={data} defaultValue={"Pesquisa"} />
+                    <Search onChangeSearch={this.onChangeSearch.bind(this)} data={data} defaultValue={"Pesquisa"} />
                     <List data={data} minValue={minValue}/>
                 </div>
                 <div className="col-r">
