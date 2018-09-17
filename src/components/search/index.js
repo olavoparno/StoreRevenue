@@ -24,7 +24,7 @@ class Search extends React.Component {
 
     onChange(event) {
         const valueChanged = event.target.value;
-        this.props.onChange(valueChanged);
+        this.props.onChangeSearch(valueChanged);
     }
 
     render() {
