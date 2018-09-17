@@ -652,3 +652,9 @@
   margin-left: -12px;
   border-right-color: #fff;
 }
+
+@media (max-width: '768px') {
+  .leaflet-container {
+    width: 100%;
+  }
+}
