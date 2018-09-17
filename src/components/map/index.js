@@ -3,7 +3,7 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import styled from "styled-components";
 
 const CustomMap = styled(Map)`
-  height: 345px;
+  height: 355px;
   margin-right: 30px;
 `;
 
@@ -53,7 +53,7 @@ class MyMap extends React.Component {
                 icon={myIcon(item.revenue)}>
                 <Popup>
                   {
-                    item.revenue < 15000 ?
+                    item.revenue < minValue ?
                       <div>
                         <div style={{'color': 'red'}}>Nome: {item.name}</div>
                         <div style={{'color': 'red'}}>Receita: {item.revenue}</div>
