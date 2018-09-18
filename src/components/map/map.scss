@@ -1,5 +1,4 @@
 /* required styles */
-
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -17,6 +16,8 @@
 .leaflet-container {
   overflow: hidden;
   margin-top: 15px;
+  height: 355px;
+  margin-right: 30px;
 }
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -81,9 +82,6 @@
 }
 .leaflet-container {
   -webkit-tap-highlight-color: transparent;
-}
-.leaflet-container a {
-  /* -webkit-tap-highlight-color: rgba(51, 181, 229, 0.4); */
 }
 .leaflet-tile {
   filter: inherit;
@@ -278,14 +276,11 @@
   background: #ddd;
   outline: 0;
 }
-.leaflet-container a {
-  /* color: #0078a8; */
-}
+
 .leaflet-container a.leaflet-active {
   outline: 2px solid orange;
 }
 .leaflet-zoom-box {
-  /* border: 2px dotted #38f; */
   background: rgba(255, 255, 255, 0.5);
 }
 
@@ -573,84 +568,6 @@
 .leaflet-div-icon {
   background: #fff;
   border: 1px solid #666;
-}
-
-/* Tooltip */
-/* Base styles for the element that has a tooltip */
-.leaflet-tooltip {
-  position: absolute;
-  padding: 6px;
-  background-color: #fff;
-  border: 1px solid #fff;
-  border-radius: 3px;
-  color: #222;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-.leaflet-tooltip.leaflet-clickable {
-  cursor: pointer;
-  pointer-events: auto;
-}
-.leaflet-tooltip-top:before,
-.leaflet-tooltip-bottom:before,
-.leaflet-tooltip-left:before,
-.leaflet-tooltip-right:before {
-  position: absolute;
-  pointer-events: none;
-  border: 6px solid transparent;
-  background: transparent;
-  content: "";
-}
-
-/* Directions */
-
-.leaflet-tooltip-bottom {
-  margin-top: 6px;
-}
-.leaflet-tooltip-top {
-  margin-top: -6px;
-}
-.leaflet-tooltip-bottom:before,
-.leaflet-tooltip-top:before {
-  left: 50%;
-  margin-left: -6px;
-}
-.leaflet-tooltip-top:before {
-  bottom: 0;
-  margin-bottom: -12px;
-  border-top-color: #fff;
-}
-.leaflet-tooltip-bottom:before {
-  top: 0;
-  margin-top: -12px;
-  margin-left: -6px;
-  border-bottom-color: #fff;
-}
-.leaflet-tooltip-left {
-  margin-left: -6px;
-}
-.leaflet-tooltip-right {
-  margin-left: 6px;
-}
-.leaflet-tooltip-left:before,
-.leaflet-tooltip-right:before {
-  top: 50%;
-  margin-top: -6px;
-}
-.leaflet-tooltip-left:before {
-  right: 0;
-  margin-right: -12px;
-  border-left-color: #fff;
-}
-.leaflet-tooltip-right:before {
-  left: 0;
-  margin-left: -12px;
-  border-right-color: #fff;
 }
 
 @media (max-width: '768px') {
