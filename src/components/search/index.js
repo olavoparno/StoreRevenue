@@ -22,6 +22,16 @@ class Search extends React.Component {
         return null;
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.data !== nextProps.data) {
+            return true;
+        }
+        if (this.state.stores !== nextState.stores) {
+            return true;
+        }
+        return false;
+    }
+
     onChange(event) {
         const valueChanged = event.target.value;
         this.props.onChangeSearch(valueChanged);

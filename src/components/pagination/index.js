@@ -19,13 +19,23 @@ class Pagination extends React.Component {
         return null;
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.items !== nextProps.items) {
+            return true;
+        }
+        if (this.state.pager !== nextState.pager) {
+            return true;
+        }
+        return false;
+    }
+
     componentDidMount() {
         if (this.props.items && this.props.items.length) {
             this.setPage(this.props.initialPage);
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (this.props.items !== prevProps.items) {
             this.setPage(this.props.initialPage);
         }

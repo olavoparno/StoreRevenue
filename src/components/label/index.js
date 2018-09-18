@@ -1,35 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Label = (props) => {
-    let { disabled, minValue } = props;
+class Label extends React.Component {
+    constructor(props) {
+        super(props)
 
-    minValue = minValue.toLocaleString(
-        "pt-BR",
-        { minimumFractionDigits: 2 }
-    )
+        this.state = {
+            value: ""
+        };
+    }
 
-    const onChange = (event) => {
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.value !== nextState.value) {
+            return true;
+        }
+        return false;
+    }
+
+    onChange(event) {
         let valueChanged = event.target.value;
         valueChanged = valueChanged.toLocaleString(
             "pt-BR",
             { minimumFractionDigits: 2 }
         )
+        this.setState({
+            value: valueChanged
+        })
 
-        props.onChange(valueChanged);
+        this.props.onChange(valueChanged);
     }
-
-    return (
-        <div className="div__label revenue">
-            <span>Faturamento mínimo esperado</span>
-            <input type="number" 
-                   className="div__label label__min revenue" 
-                   disabled={disabled} 
-                   placeholder={minValue}
-                   onChange={onChange.bind(this)}
-                />
-        </div>
-    );
+    render() {
+    let { disabled, minValue } = this.props;
+    minValue = minValue.toLocaleString(
+        "pt-BR",
+        { minimumFractionDigits: 2 }
+    )
+        return (
+            <div className="div__label revenue">
+                <span>Faturamento mínimo esperado</span>
+                <input type="number" 
+                    className="div__label label__min revenue" 
+                    disabled={disabled} 
+                    placeholder={minValue}
+                    onChange={this.onChange.bind(this)}
+                    />
+            </div>
+        );
+    }
 }
 
 Label.propTypes = {

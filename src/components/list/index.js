@@ -39,9 +39,6 @@ class List extends React.Component {
         return null;
     }
 
-    componentDidUpdate() {
-    }
-    
     componentDidMount() {
         this.sortBy("name");
     }
