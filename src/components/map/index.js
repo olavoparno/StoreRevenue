@@ -1,12 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import styled from "styled-components";
-
-const CustomMap = styled(Map)`
-  height: 355px;
-  margin-right: 30px;
-`;
 
 import "./map.scss";
 
@@ -43,7 +37,7 @@ class MyMap extends React.Component {
     
     const position = [-23.577158, -46.665183];
     return (
-      <CustomMap center={position} zoom={this.state.zoom}>
+      <Map center={position} zoom={this.state.zoom}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {
           this.state.items.map((item, idx) => {
@@ -69,12 +63,12 @@ class MyMap extends React.Component {
             )
           })
         }
-      </CustomMap>
+      </Map>
     );
   }
 }
 
-Map.propTypes = {
+MyMap.propTypes = {
   data: PropTypes.any,
   minValue: PropTypes.number
 }
