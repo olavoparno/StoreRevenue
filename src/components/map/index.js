@@ -75,7 +75,7 @@ class MyMap extends React.Component {
 }
 
 Map.propTypes = {
-  data: PropTypes.any.isRequired,
+  data: PropTypes.any,
   minValue: PropTypes.number
 }
 
