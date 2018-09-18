@@ -11,7 +11,7 @@
 https://gitlab.com/olavoparno/gfn_frontend_challenge_olavo-parno.git
 ```
 2. Execute ***npm install*** para instalar todas dependências.
-3. Execute ***npm run start*** para servir o projeto sob o endereço: http://localhost:8080/.
+3. Execute ***npm start*** para servir o projeto sob o endereço: http://localhost:8080/.
 
 ## Instruções de Build
 
