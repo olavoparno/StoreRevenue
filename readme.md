@@ -15,7 +15,7 @@ https://gitlab.com/olavoparno/gfn_frontend_challenge_olavo-parno.git
 
 ## Build Instructions
 
-* After all dependencies have been installed, run ***npm run build*** and serve the files on the ***dist*** folder.
+* After all dependencies have been installed, run ***npm run build*** and serve the files in the ***dist*** folder.
 
 ## Third-party Libraries
 
