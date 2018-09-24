@@ -463,12 +463,15 @@
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
   box-shadow: none;
-  display: none;
 }
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
   border: 2px solid rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
+}
+
+.leaflet-control-attribution.leaflet-control {
+  display: none;
 }
 
 /* popup */
