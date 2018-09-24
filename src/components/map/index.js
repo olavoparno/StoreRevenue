@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
-import "./map.scss";
+import "../../scss/map.scss";
 
 class MyMap extends React.Component {
   constructor(props) {
