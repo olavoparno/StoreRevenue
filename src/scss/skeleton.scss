@@ -11,13 +11,13 @@
 .col-l {
     position: relative;
     display: block;
-    flex-grow: 1;
+    flex: 1 0;
 }
 
 .col-r {
     position: relative;
     display: block;
-    flex-grow: 5;
+    flex: 1 0;
 }
 
 %input-label-radius {
@@ -28,13 +28,16 @@
     box-sizing: border-box;
     
     padding: 5px 10px 5px 5px;
-    width: 15rem;
+    width: 60%;
     background-color: white;
     
     -moz-box-shadow:    1px 2px 2px 0px #ccc;
     -webkit-box-shadow: 1px 2px 2px 0px #ccc;
 
     box-shadow:         1px 2px 2px 0px #ccc;
+
+    -webkit-filter: grayscale(100%);
+    filter: gray;
 
     &::placeholder {
         color: lightgray;
@@ -43,14 +46,12 @@
 
 .label__min, .input__search {
     @extend %input-label-radius;
-    -webkit-filter: grayscale(100%);
-    filter: gray;
 }
 
 .div__label {
     display: block;
-    font-size: 12px;
     color: #000000;
+    
     .label__min, .input__search {
         text-align: right;
     }
@@ -58,17 +59,19 @@
 
 .div__search {
     display: block;
+    margin: 1.2em 30px 0 30px;
+    
     .input__search {
-        transform: translateY(-1%);
+        position: relative;
+        left: 0;
         text-align: left;
-        margin: 1em 30px;
+        margin: 1em 30px 0 0;
+        width: 100%;
         
         background-image: url('../resources/images/search.svg');
         background-repeat: no-repeat;
         background-position: right;
         background-size: 15px;
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
     }
 }
 
