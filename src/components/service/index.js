@@ -1,6 +1,6 @@
 export class MapService {
     getStores() {
-      return fetch('../../../src/resources/data/data.json')
+      return fetch('./data/data.json')
         .then(response => response.json())
         .then(data => {
           if (!data)

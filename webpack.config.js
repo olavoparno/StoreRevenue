@@ -26,12 +26,22 @@ module.exports = {
             ]
         },
         { 
-            test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+            test: /\.(woff|woff2|eot|ttf)$/, 
             use: [{
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
                     outputPath: 'fonts/'
+                }
+            }]
+        },
+        { 
+            test: /\.(png|svg)$/, 
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images/'
                 }
             }]
         }
@@ -46,6 +56,10 @@ module.exports = {
     new CopyWebpackPlugin([{
         from: 'src/resources/images/', 
         to: 'images/'
+    },
+    {
+        from: 'src/resources/data/', 
+        to: 'data/'
     }])
   ]
 };
