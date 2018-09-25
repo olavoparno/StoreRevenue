@@ -1,8 +1,8 @@
 # Store Revenue Map
 
-1. [Getting started](#Getting-Started)
-2. [Build instructions](#Build-Instructions)
-3. [Third-party Libraries](#Third-party-Libraries)
+1. [Getting started](#getting-started)
+2. [Build instructions](#build-instructions)
+3. [Third-party Libraries](#third-party-libraries)
 
 ## Getting Started
 
