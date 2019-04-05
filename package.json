@@ -1,37 +1,57 @@
 {
-  "name": "gfn_frontend_challenge_olavo-parno",
-  "version": "1.0.0",
-  "description": "",
+  "name": "store-map-revenue",
+  "version": "0.0.1",
+  "description": "A React Leaflet map for stores",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "prebuild": "echo nok > .buildstatus && npm run test -- --coverage && npm run make-badges",
+    "postbuild": "echo ok > .buildstatus",
+    "make-badges": "node_modules/.bin/jest-badges-readme",
+    "test": "node_modules/.bin/jest"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test -- --coverage && node_modules/.bin/jest-badges-readme && git add 'README.md'"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "copy-webpack-plugin": "^4.5.2",
-    "css-loader": "^1.0.0",
-    "file-loader": "^2.0.0",
+    "@olavoparno/jest-badges-readme": "^1.3.3",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.9.3",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "jest-fetch-mock": "^2.1.2",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "webpack": "^4.18.0",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "leaflet": "^1.3.4",
-    "react-leaflet": "^2.0.1"
+    "leaflet": "^1.4.0",
+    "react-leaflet": "^2.2.1"
   }
 }
